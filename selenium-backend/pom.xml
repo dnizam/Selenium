@@ -12,8 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.6</maven.compiler.source>
-    <maven.compiler.target>1.6</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -38,22 +38,31 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
   <build>
   <plugins>
     <plugin>
-      <!-- Build an executable JAR -->
-      <groupId>selenium-backend</groupId>
-      <artifactId>selenium-backend</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-      <configuration>
-        <archive>
-          <manifest>
-            <addClasspath>true</addClasspath>
-            <classpathPrefix>lib/</classpathPrefix>
-            <mainClass>selenium_backend.selenium_backend.App</mainClass>
-          </manifest>
-        </archive>
-      </configuration>
+     <groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-assembly-plugin</artifactId>
+<executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
+            </goals>
+<configuration>
+<archive>
+<manifest>
+<mainClass>selenium_backend.selenium_backend.App</mainClass>
+<addClasspath>true</addClasspath>
+</manifest>
+</archive>
+<descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+</configuration>
+</execution>
+    </executions>
     </plugin>
   </plugins>
 </build>
