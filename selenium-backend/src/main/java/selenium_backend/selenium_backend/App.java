@@ -1,5 +1,7 @@
 package selenium_backend.selenium_backend;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -7,25 +9,34 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 
 
 
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws MalformedURLException
     {
     	// create instance of Random class 
         Random rand = new Random(); 
-    	System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
-	    // Add options to Google Chrome. The window-size is important for responsive sites
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        options.addArguments("window-size=1200x600");
-	options.setExperimentalOption("useAutomationExtension", false);
-    	WebDriver driver = new ChromeDriver(options);
+    	//System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
     	
-        String baseUrl = "http://146.148.75.6:8085/getForm";
-        int random = rand.nextInt(50);
+    	//WebDriver driver = new ChromeDriver()
+    	// Add options to Google Chrome. The window-size is important for responsive sites
+        /*ChromeOptions options = new ChromeOptions();
+        options.setCapability(capabilityName, value);
+        options.addArguments("headless");
+        options.addArguments("window-size=1200x600");*/
+        String baseUrl = "http://34.69.187.199:8085/getForm";
+        String nodeURL = "http://192.168.0.103:29278/wd/hub";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "chrome");
+        WebDriver driver = new RemoteWebDriver(
+                new URL(nodeURL),
+                capabilities);
+         int random = rand.nextInt(50);
         driver.get(baseUrl);
         //Get the web element corresponding to employee name
         WebElement eName = driver.findElement(By.name("employeeName"));
@@ -36,7 +47,7 @@ public class App
         email.sendKeys("test"+random+"@test.com");
         submit.click();
         //validate if the the employee was added to database
-        driver.get("http://34.71.120.149:8082/user/get-by-email?email="+"test"+random+"@test.com");
+        driver.get("http://35.184.142.131:8082/user/get-by-email?email="+"test"+random+"@test.com");
         //get the message
         WebElement message = driver.findElement(By.xpath("/html/body"));
         String messageTxt = message.getText();
