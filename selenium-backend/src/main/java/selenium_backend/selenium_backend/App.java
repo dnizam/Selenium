@@ -24,7 +24,7 @@ public class App
 	options.setExperimentalOption("useAutomationExtension", false);
     	WebDriver driver = new ChromeDriver(options);
     	
-        String baseUrl = "http://34.69.187.199:8085/getForm";
+        String baseUrl = "http://146.148.75.6:8085/getForm";
         int random = rand.nextInt(50);
         driver.get(baseUrl);
         //Get the web element corresponding to employee name
@@ -36,7 +36,7 @@ public class App
         email.sendKeys("test"+random+"@test.com");
         submit.click();
         //validate if the the employee was added to database
-        driver.get("http://35.184.142.131:8082/user/get-by-email?email="+"test"+random+"@test.com");
+        driver.get("http://34.71.120.149:8082/user/get-by-email?email="+"test"+random+"@test.com");
         //get the message
         WebElement message = driver.findElement(By.xpath("/html/body"));
         String messageTxt = message.getText();
