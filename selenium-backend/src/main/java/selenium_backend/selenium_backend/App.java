@@ -17,11 +17,13 @@ public class App
     	// create instance of Random class 
         Random rand = new Random(); 
     	System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
-    	WebDriver driver = new ChromeDriver();
-    	// Add options to Google Chrome. The window-size is important for responsive sites
+	    // Add options to Google Chrome. The window-size is important for responsive sites
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("window-size=1200x600");
+	options.setExperimentalOption("useAutomationExtension", false);
+    	WebDriver driver = new ChromeDriver(options);
+    	
         String baseUrl = "http://34.69.187.199:8085/getForm";
         int random = rand.nextInt(50);
         driver.get(baseUrl);
