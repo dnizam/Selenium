@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 
@@ -15,8 +16,8 @@ public class App
     {
     	// create instance of Random class 
         Random rand = new Random(); 
-    	System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-    	WebDriver driver = new ChromeDriver();
+    	//System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+    	FirefoxDriver driver = new FirefoxDriver();
         String baseUrl = "http://34.69.187.199:8085/getForm";
         int random = rand.nextInt(50);
         driver.get(baseUrl);
