@@ -40,7 +40,7 @@ try:
   element = driver.find_element_by_xpath("/html/body")
 except NoSuchElementException:
     print("No element found")
-#msgText = element.get_attribute("value")
-#print(str(msgText))
+msgText = element.text
+print(str(msgText))
 #assert msgText.startswith('The user id is')
 driver.close()
