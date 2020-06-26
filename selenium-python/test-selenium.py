@@ -15,14 +15,15 @@ driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
                           chrome_options=chrome_options
                          )
 driver.get("http://35.239.244.72:8085/getForm")
-element = driver.find_element_by_xpath("/html/body/form/input[1]")
-element.send_keys("test"+rand)
-element = driver.find_element_by_xpath("/html/body/form/input[3]")
-element.send_keys("test"+rand+"@test.com")
+#element = driver.find_element_by_xpath("/html/body/form/input[1]")
+#element.send_keys("test"+rand)
+#element = driver.find_element_by_xpath("/html/body/form/input[3]")
+#element.send_keys("test"+rand+"@test.com")
+print(driver.title)
 
 #validate if the entry is updated in database
-driver.get("http://104.197.190.255:8082/user/get-by-email?email="+"test"+random+"@test.com")
-element = driver.find_element_by_xpath("/html/body")
-msgText = element.get_attribute('value')
-assert msgText !=  "User not found"
+#driver.get("http://104.197.190.255:8082/user/get-by-email?email="+"test"+random+"@test.com")
+#element = driver.find_element_by_xpath("/html/body")
+#msgText = element.get_attribute('value')
+#assert msgText !=  "User not found"
 driver.close()
