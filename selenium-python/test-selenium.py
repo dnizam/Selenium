@@ -18,7 +18,7 @@ driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
                           chrome_options=chrome_options
                          )
 driver.get("http://35.239.244.72:8085/getForm")
-wait = WebDriverWait( driver, 5 )
+wait = WebDriverWait( driver, 8 )
 element = driver.find_element_by_xpath("/html/body/form/input[1]")
 element.send_keys("test"+str(rand))
 element = driver.find_element_by_xpath("/html/body/form/input[3]")
