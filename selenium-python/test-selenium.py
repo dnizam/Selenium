@@ -27,12 +27,17 @@ submit = driver.find_element_by_xpath("/html/body/form/input[3]")
 submit.click()
 wait = WebDriverWait( driver, 5 )
 #print(driver.title)
+driver.close()
 
 #validate if the entry is updated in database
+driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
+                          chrome_options=chrome_options
+                         )
 driver.get("http://104.197.190.255:8082/user/get-by-email?email="+"test"+str(rand)+"@test.com")
 wait = WebDriverWait( driver, 8 )
+print(driver.title)
 element = driver.find_element_by_xpath("/html/body")
 msgText = element.get_attribute("value")
 print(str(msgText))
-assert msgText !=  "User not found"
+assert msgText.startswith('The user id is')
 driver.close()
