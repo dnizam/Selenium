@@ -2,10 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from random import seed
 from random import random
+from random import randint
 from selenium.webdriver.support.ui import WebDriverWait
 # seed random number generator
 seed(1)
-rand = random()
+rand = randint(0, 50)
 print(str(rand))
 CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
 WINDOW_SIZE = "1920,1080"
