@@ -4,6 +4,7 @@ from random import seed
 from random import random
 from random import randint
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException
 # seed random number generator
 seed(1)
 rand = randint(0, 50)
@@ -34,8 +35,11 @@ backendURL = "http://104.197.190.255:8082/user/get-by-email?email="+"test"+str(r
 print(backendURL)
 driver.get(backendURL)
 wait = WebDriverWait( driver, 10 )
-print("the broser title is: "+str(driver.title))
-#element = driver.find_element_by_xpath("/html/body")
+#print("the broser title is: "+str(driver.title))
+try:
+  element = driver.find_element_by_xpath("/html/body")
+except NoSuchElementException:
+    print("No element found")
 #msgText = element.get_attribute("value")
 #print(str(msgText))
 #assert msgText.startswith('The user id is')
