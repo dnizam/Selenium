@@ -26,8 +26,10 @@ element = driver.find_element_by_xpath("/html/body/form/input[3]")
 element.send_keys("test"+str(rand)+"@test.com")
 submit = driver.find_element_by_xpath("/html/body/form/input[3]")
 submit.click()
-wait = WebDriverWait( driver, 5 )
-print(driver.title)
+wait = WebDriverWait( driver, 8 )
+element = driver.find_element_by_xpath("/html/body/h4[1]")
+print(element.text)
+#print(driver.title)
 
 
 #validate if the entry is updated in database
