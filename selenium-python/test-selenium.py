@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 # seed random number generator
 seed(1)
 rand = random()
+print(str(rand))
 CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
 WINDOW_SIZE = "1920,1080"
 chrome_options = Options()
@@ -31,6 +32,6 @@ driver.get("http://104.197.190.255:8082/user/get-by-email?email="+"test"+str(ran
 wait = WebDriverWait( driver, 8 )
 element = driver.find_element_by_xpath("/html/body")
 msgText = element.get_attribute("value")
-print(msgText)
+print(str(msgText))
 assert msgText !=  "User not found"
 driver.close()
