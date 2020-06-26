@@ -34,7 +34,7 @@ backendURL = "http://104.197.190.255:8082/user/get-by-email?email="+"test"+str(r
 print(backendURL)
 driver.get(backendURL)
 wait = WebDriverWait( driver, 10 )
-print(driver.title)
+print("the broser title is: "+str(driver.title))
 #element = driver.find_element_by_xpath("/html/body")
 #msgText = element.get_attribute("value")
 #print(str(msgText))
