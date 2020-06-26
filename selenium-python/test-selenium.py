@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from random import seed
 from random import random
+from selenium.webdriver.support.ui import WebDriverWait
 # seed random number generator
 seed(1)
 rand = random()
