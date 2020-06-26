@@ -27,7 +27,7 @@ wait = WebDriverWait( driver, 5 )
 #print(driver.title)
 
 #validate if the entry is updated in database
-driver.get("http://104.197.190.255:8082/user/get-by-email?email="+"test"+random+"@test.com")
+driver.get("http://104.197.190.255:8082/user/get-by-email?email="+"test"+str(rand)+"@test.com")
 wait = WebDriverWait( driver, 5 )
 element = driver.find_element_by_xpath("/html/body")
 msgText = element.get_attribute('value')
