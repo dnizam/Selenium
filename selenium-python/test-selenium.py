@@ -26,7 +26,7 @@ element.send_keys("test"+str(rand)+"@test.com")
 submit = driver.find_element_by_xpath("/html/body/form/input[3]")
 submit.click()
 wait = WebDriverWait( driver, 5 )
-#print(driver.title)
+print(driver.title)
 
 
 #validate if the entry is updated in database
