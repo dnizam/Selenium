@@ -6,9 +6,10 @@ from random import randint
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 # seed random number generator
-#seed(1)
-#rand = randint(0, 50)
-rand = 4
+seed(1)
+rand = randint(0, 50)
+#rand = 4
+email = "test@test.com"
 print(str(rand))
 CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
 WINDOW_SIZE = "1920,1080"
@@ -25,7 +26,7 @@ element = driver.find_element_by_name("employeeName")
 element.send_keys("test"+str(rand))
 wait = WebDriverWait( driver, 5 )
 element = driver.find_element_by_xpath("/html/body/form/input[3]")
-element.send_keys("test"+str(rand)+"@test.com")
+element.send_keys(email)
 print("email entered is: "+element.text)
 wait = WebDriverWait( driver, 5 )
 submit = driver.find_element_by_xpath("/html/body/form/input[3]")
