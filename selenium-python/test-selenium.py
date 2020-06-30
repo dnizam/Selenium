@@ -6,8 +6,9 @@ from random import randint
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 # seed random number generator
-seed(1)
-rand = randint(0, 50)
+#seed(1)
+#rand = randint(0, 50)
+rand = 4
 print(str(rand))
 CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
 WINDOW_SIZE = "1920,1080"
