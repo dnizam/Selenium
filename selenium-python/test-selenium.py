@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from random import seed
-from random import random
+import random
 #from random import randint
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
