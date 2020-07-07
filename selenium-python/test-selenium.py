@@ -39,7 +39,7 @@ print(element.text)
 
 
 #validate if the entry is updated in database
-backendURL = "http://34.66.176.128:8082/user/get-by-email?email="+"test"+str(rand)+"@test.com"
+backendURL = "http://34.72.231.37:8082/user/get-by-email?email="+"test"+str(rand)+"@test.com"
 print(backendURL)
 driver.get(backendURL)
 wait = WebDriverWait( driver, 10 )
