@@ -20,7 +20,7 @@ chrome_options.add_argument('--no-sandbox')
 driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
                           chrome_options=chrome_options
                          )
-driver.get("http://34.66.176.128:8085/getForm")
+driver.get("http://34.66.139.124:8085/getForm")
 wait = WebDriverWait( driver, 8 )
 element = driver.find_element_by_name("employeeName")
 element.send_keys("test"+str(rand))
