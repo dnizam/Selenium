@@ -20,7 +20,7 @@ chrome_options.add_argument('--no-sandbox')
 driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
                           chrome_options=chrome_options
                          )
-driver.get("http://34.66.139.124:8085/getForm")
+driver.get("http://35.184.139.254:8085/getForm")
 wait = WebDriverWait( driver, 8 )
 element = driver.find_element_by_name("employeeName")
 element.send_keys("test"+str(rand))
@@ -39,7 +39,7 @@ print(element.text)
 
 
 #validate if the entry is updated in database
-backendURL = "http://34.72.231.37:8082/user/get-by-email?email="+"test"+str(rand)+"@test.com"
+backendURL = "http://146.148.50.81:8082/user/get-by-email?email="+"test"+str(rand)+"@test.com"
 print(backendURL)
 driver.get(backendURL)
 wait = WebDriverWait( driver, 10 )
